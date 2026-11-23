@@ -1,1 +1,21 @@
 
+<!--
+  Extrait de /var/ossec/etc/ossec.conf
+  Bloc ajouté pour envoyer les alertes de brute force SSH vers Shuffle.
+
+  Remplacer SHUFFLE_IP et WEBHOOK_ID par vos propres valeurs.
+  Ce bloc doit être placé À L'INTÉRIEUR d'un bloc <ossec_config> existant,
+  avant sa balise fermante </ossec_config>.
+
+  Règles utilisées :
+  - 5710 : tentative de connexion avec un utilisateur inexistant
+  - 5712 : brute force SSH détecté
+  - 5763 : variante de détection de brute force SSH
+-->
+
+<integration>
+  <name>shuffle</name>
+  <hook_url>http://SHUFFLE_IP:3001/api/v1/hooks/WEBHOOK_ID</hook_url>
+  <rule_id>5710,5712,5763</rule_id>
+  <alert_format>json</alert_format>
+</integration>
