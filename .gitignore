@@ -1,1 +1,23 @@
 
+# Logs et captures réseau
+*.log
+*.pcapng
+*.pcap
+
+# Données Shuffle (base, secrets)
+shuffle-database/
+.env
+
+# Fichiers contenant des identifiants
+*password*
+*secret*
+*.key
+id_rsa*
+
+# Fichiers temporaires
+*.tmp
+*.swp
+
+# Systeme
+.DS_Store
+Thumbs.db
